@@ -9,6 +9,7 @@ import android.util.TypedValue
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
+import com.google.android.renderscript.Toolkit
 import kotlin.properties.Delegates
 
 class ShadowLib @JvmOverloads constructor(
@@ -144,7 +145,7 @@ class ShadowLib @JvmOverloads constructor(
                 shadowBuilder.shadowPaddingRight ?: shadowPaddingRight
             )
         }
-        return drawBitmap//Toolkit.blur(drawBitmap, shadowBuilder.shadowRadius ?: shadowRadius)
+        return Toolkit.blur(drawBitmap, shadowBuilder.shadowRadius ?: shadowRadius)
     }
 
     private fun shadowTransitionVertical(drawBitmap: Int): Float {
