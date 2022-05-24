@@ -1,6 +1,6 @@
 # Shadow vector image (Kotlin)
 
-This library can help you to set shadow on vector. Works on API level 21 or later.
+This library can help you to set shadow on vector. Works on API level 23 or later.
 Your image **(Vector)** will duplicate and bluring.
 
 ![ShadowLib](https://i.ibb.co/kyZ3F8y/photo-2022-04-27-15-54-14.jpg "ShadowLib")
