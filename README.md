@@ -14,6 +14,17 @@ Add your app level build.gradle
 ```Xml
   implementation 'com.github.Renlov:ShadowLibrary:0.0.6'
 ```
+Add your app level build.gradle
+```Xml
+ allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+
 
 ### Usage in code
 Add in your xml shadowvectorimage
