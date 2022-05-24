@@ -1,6 +1,6 @@
 [![](https://jitpack.io/v/Renlov/ShadowLibrary.svg)](https://jitpack.io/#Renlov/ShadowLibrary)
 
-# Shadow vector image (Kotlin)
+# Shadow vector image (for Android app on Kotlin)
 
 This library can help you to set shadow on vector. Works on API level 23 or later.
 Your image **(Vector)** will duplicate and bluring.
