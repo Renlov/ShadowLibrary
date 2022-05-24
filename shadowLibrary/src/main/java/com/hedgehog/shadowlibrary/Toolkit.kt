@@ -1090,7 +1090,7 @@ object Toolkit {
     private var nativeHandle: Long = 0
 
     init {
-        System.loadLibrary("renderscript-toolkit")
+        System.loadLibrary("shadowLibrary")
         nativeHandle = createNative()
     }
 
