@@ -75,7 +75,7 @@ class ShadowBuilder(@DrawableRes internal val image: Int?) {
         shadowTransitionRight = end
         return this
     }
-
+//
 //    fun into(view: ShadowLib) {
 //        view.setBuilder(this)
 //    }
