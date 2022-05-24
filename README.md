@@ -10,13 +10,13 @@ Your image **(Vector)** will duplicate and bluring.
 -Dependency
 Add your app level build.gradle
 ```Xml
-  implementation 'io.github.renlov:shadowLibrary:1.0.0'
+  implementation 'com.github.Renlov:ShadowLibrary:0.0.6'
 ```
 
 ### Usage in code
 Add in your xml shadowvectorimage
 ```Xml
-    <com.hedgehog.shadowvectorimage.ShadowLib
+    <com.hedgehog.shadowlibrary.ShadowLib
         android:id="@+id/shadowLib"
         android:layout_width="124dp"
         android:layout_height="124dp"/>
@@ -33,7 +33,7 @@ Add in your code `ShadowLibrary` object
 ```
 ### Usage in xml
 ```xml
-<com.hedgehog.shadowvectorimage.ShadowLib
+<com.hedgehog.shadowlibrary.ShadowLib
         android:id="@+id/shadowLib"
         android:layout_width="124dp"
         android:layout_height="124dp"
