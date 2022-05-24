@@ -14,7 +14,7 @@ Add your app level build.gradle
 ```Xml
   implementation 'com.github.Renlov:ShadowLibrary:0.0.6'
 ```
-Add your app level build.gradle
+Add in your settings.gradle
 ```Xml
  allprojects {
 		repositories {
