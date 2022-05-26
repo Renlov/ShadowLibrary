@@ -12,7 +12,7 @@ Your image **(Vector)** will duplicate and bluring.
 -Dependency
 Add your app level build.gradle
 ```Xml
-  implementation 'com.github.Renlov:ShadowLibrary:0.0.6'
+  implementation 'com.github.Renlov:ShadowLibrary:0.1.0'
 ```
 Add in your settings.gradle
 ```Xml
@@ -29,7 +29,7 @@ Add in your settings.gradle
 ### Usage in code
 Add in your xml shadowvectorimage
 ```Xml
-    <com.hedgehog.shadowlibrary.ShadowLib
+    <com.hedgehog.shadowLibrary.ShadowLibrary
         android:id="@+id/shadowLib"
         android:layout_width="124dp"
         android:layout_height="124dp"/>
@@ -46,31 +46,34 @@ Add in your code `ShadowLibrary` object
 ```
 ### Usage in xml
 ```xml
-<com.hedgehog.shadowlibrary.ShadowLib
+
+xmlns:app="http://schemas.android.com/apk/res-auto"
+						 
+<com.hedgehog.shadowLibrary.ShadowLibrary
         android:id="@+id/shadowLib"
         android:layout_width="124dp"
         android:layout_height="124dp"
-        app:shadowImage="@drawable/ic_resource_default"
-        app:shadowPaddingLeft="10"
-        app:shadowRadius="15"
-        app:shadowScale="1.1"
-        app:shadowTransitionLeft="5"
-        app:shadowTransitionTop="5" />
+        app:shadowImageLib="@drawable/ic_resource_default"
+        app:shadowPaddingLeftLib="10"
+        app:shadowRadiusLib="15"
+        app:shadowScaleLib="1.1"
+        app:shadowTransitionLeftLib="5"
+        app:shadowTransitionTopLib="5" />
 ```
 ### Parameters
 | Param | Description | defValue |
 |----------------|----------------|----------------|
-| shadowRadius | Its value for set shadow blur for your image beetween 1 to 25| 1 (Int) |
-| shadowScale | scale shadow relatively your image | 1f (Float) |
-| shadowColor | set shadow color from R.color.yourColor | R.color.shadow(#DCDCDC, Int) |
-| shadowPaddingTop | set padding top relatively to shadow | 0 (Int) | 
-| shadowPaddingBottom | set padding bottom relatively to shadow | 0 (Int) | 
-| shadowPaddingLeft | set padding left relatively to shadow | 0 (Int) | 
-| shadowPaddingRight | set padding right relatively to shadow | 0 (Int) | 
-| shadowTransitionTop | move shadow top relatively to image | 0 (Int) | 
-| shadowTransitionBottom | move shadow bottom relatively to image | 0 (Int) | 
-| shadowTransitionLeft | move shadow left relatively to image | 0 (Int) | 
-| shadowTransitionRight | move shadow right relatively to image | 0 (Int) | 
+| shadowRadiusLib | Its value for set shadow blur for your image beetween 1 to 25| 1 (Int) |
+| shadowScaleLib | scale shadow relatively your image | 1f (Float) |
+| shadowColorLib | set shadow color from R.color.yourColor | R.color.shadow(#DCDCDC, Int) |
+| shadowPaddingTopLib | set padding top relatively to shadow | 0 (Int) | 
+| shadowPaddingBottomLib | set padding bottom relatively to shadow | 0 (Int) | 
+| shadowPaddingLeftLib | set padding left relatively to shadow | 0 (Int) | 
+| shadowPaddingRightLib | set padding right relatively to shadow | 0 (Int) | 
+| shadowTransitionTopLib | move shadow top relatively to image | 0 (Int) | 
+| shadowTransitionBottomLib | move shadow bottom relatively to image | 0 (Int) | 
+| shadowTransitionLeftLib | move shadow left relatively to image | 0 (Int) | 
+| shadowTransitionRightLib | move shadow right relatively to image | 0 (Int) | 
 
 ### License
 ```
