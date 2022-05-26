@@ -1,10 +1,11 @@
-package com.hedgehog.shadowlibrary
+package com.hedgehog.shadowLibrary
 
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.Log
 import android.util.TypedValue
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -12,7 +13,7 @@ import androidx.core.graphics.drawable.toBitmap
 import com.google.android.renderscript.Toolkit
 import kotlin.properties.Delegates
 
-class ShadowLib @JvmOverloads constructor(
+class ShadowLibrary @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -37,26 +38,25 @@ class ShadowLib @JvmOverloads constructor(
 
     init {
         val typeArray: TypedArray =
-            context.obtainStyledAttributes(attrs, R.styleable.ShadowLib)
-        shadowScale = typeArray.getFloat(R.styleable.ShadowLib_shadowScale, 0f)
-        image = typeArray.getResourceId(
-            R.styleable.ShadowLib_shadowImage, R.drawable.ic_default
-        )
-        shadowRadius = typeArray.getInt(R.styleable.ShadowLib_shadowRadius, 1)
-        shadowColor = typeArray.getResourceId(R.styleable.ShadowLib_shadowColor, R.color.shadow)
-        shadowPaddingTop = typeArray.getInt(R.styleable.ShadowLib_shadowPaddingTop, 0)
-        shadowPaddingBottom = typeArray.getInt(R.styleable.ShadowLib_shadowPaddingBottom, 0)
-        shadowPaddingLeft = typeArray.getInt(R.styleable.ShadowLib_shadowPaddingLeft, 0)
-        shadowPaddingRight = typeArray.getInt(R.styleable.ShadowLib_shadowPaddingRight, 0)
-        shadowTransitionTop = typeArray.getInt(R.styleable.ShadowLib_shadowTransitionTop, 0)
-        shadowTransitionBottom = typeArray.getInt(R.styleable.ShadowLib_shadowTransitionBottom, 0)
-        shadowTransitionLeft = typeArray.getInt(R.styleable.ShadowLib_shadowTransitionLeft, 0)
-        shadowTransitionRight = typeArray.getInt(R.styleable.ShadowLib_shadowTransitionRight, 0)
+            context.obtainStyledAttributes(attrs, R.styleable.ShadowLibrary)
+        shadowScale = typeArray.getFloat(R.styleable.ShadowLibrary_shadowScaleLib, 1f)
+        image = typeArray.getResourceId(R.styleable.ShadowLibrary_shadowImageLib, R.drawable.ic_default_image_shadow_library)
+
+        shadowRadius = typeArray.getInt(R.styleable.ShadowLibrary_shadowRadiusLib, 1)
+        shadowColor = typeArray.getResourceId(R.styleable.ShadowLibrary_shadowColorLib, R.color.shadowColorShadowLibrary)
+        shadowPaddingTop = typeArray.getInt(R.styleable.ShadowLibrary_shadowPaddingTopLib, 0)
+        shadowPaddingBottom = typeArray.getInt(R.styleable.ShadowLibrary_shadowPaddingBottomLib, 0)
+        shadowPaddingLeft = typeArray.getInt(R.styleable.ShadowLibrary_shadowPaddingLeftLib, 0)
+        shadowPaddingRight = typeArray.getInt(R.styleable.ShadowLibrary_shadowPaddingRightLib, 0)
+        shadowTransitionTop = typeArray.getInt(R.styleable.ShadowLibrary_shadowTransitionTopLib, 0)
+        shadowTransitionBottom = typeArray.getInt(R.styleable.ShadowLibrary_shadowTransitionBottomLib, 0)
+        shadowTransitionLeft = typeArray.getInt(R.styleable.ShadowLibrary_shadowTransitionLeftLib, 0)
+        shadowTransitionRight = typeArray.getInt(R.styleable.ShadowLibrary_shadowTransitionRightLib, 0)
         typeArray.recycle()
     }
 
     fun setBuilder(shadowBuilder: ShadowBuilder) {
-        this@ShadowLib.shadowBuilder = shadowBuilder
+        this@ShadowLibrary.shadowBuilder = shadowBuilder
         invalidate()
     }
 
@@ -113,6 +113,8 @@ class ShadowLib @JvmOverloads constructor(
         val drawable =
             ResourcesCompat.getDrawable(resources, shadowBuilder.image ?: image, null)
                 ?: error("error")
+        Log.d("spectra", "$width, $height")
+        Log.d("spectra", "${shadowBuilder.shadowScale}, $shadowScale")
         val widthBitmap = (width * (shadowBuilder.shadowScale ?: shadowScale)).toInt()
         val heightBitmap = (height * (shadowBuilder.shadowScale ?: shadowScale)).toInt()
         return setShadowParam(drawable.toBitmap(widthBitmap, heightBitmap))

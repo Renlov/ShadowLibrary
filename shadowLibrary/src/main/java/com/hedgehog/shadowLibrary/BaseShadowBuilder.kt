@@ -1,4 +1,4 @@
-package com.hedgehog.shadowlibrary
+package com.hedgehog.shadowLibrary
 
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
@@ -76,7 +76,7 @@ class ShadowBuilder(@DrawableRes internal val image: Int?) {
         return this
     }
 
-    fun into(view: ShadowLib) {
+    fun into(view: ShadowLibrary) {
         view.setBuilder(this)
     }
 }

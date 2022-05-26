@@ -1,4 +1,4 @@
-package com.hedgehog.shadow
+package com.hedgehog.shadowLibrary
 
 import org.junit.Test
 

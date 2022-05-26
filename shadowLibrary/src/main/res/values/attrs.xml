@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="ShadowLib">
-        <attr name="shadowImage" format="integer" />
-        <attr name="shadowScale" format="float"/>
-        <attr name="shadowRadius" format="integer"/>
-        <attr name="shadowColor" format="integer"/>
-        <attr name="shadowPaddingTop" format="integer"/>
-        <attr name="shadowPaddingBottom" format="integer"/>
-        <attr name="shadowPaddingLeft" format="integer"/>
-        <attr name="shadowPaddingRight" format="integer"/>
-        <attr name="shadowTransitionTop" format="integer"/>
-        <attr name="shadowTransitionBottom" format="integer"/>
-        <attr name="shadowTransitionLeft" format="integer"/>
-        <attr name="shadowTransitionRight" format="integer"/>
+    <declare-styleable name="ShadowLibrary">
+        <attr name="shadowImageLib" format="reference" />
+        <attr name="shadowScaleLib" format="float"/>
+        <attr name="shadowRadiusLib" format="integer"/>
+        <attr name="shadowColorLib" format="integer"/>
+        <attr name="shadowPaddingTopLib" format="integer"/>
+        <attr name="shadowPaddingBottomLib" format="integer"/>
+        <attr name="shadowPaddingLeftLib" format="integer"/>
+        <attr name="shadowPaddingRightLib" format="integer"/>
+        <attr name="shadowTransitionTopLib" format="integer"/>
+        <attr name="shadowTransitionBottomLib" format="integer"/>
+        <attr name="shadowTransitionLeftLib" format="integer"/>
+        <attr name="shadowTransitionRightLib" format="integer"/>
     </declare-styleable>
 </resources>
