@@ -1,0 +1,87 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+tasks.register("sourceJar", Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier.set('sources')
+}
+
+Properties localProps = new Properties()
+File localProperties = new File(rootProject.rootDir, "local.properties")
+if (localProperties.exists() && localProperties.isFile()) {
+    localProperties.withInputStream { localProps.load(it) }
+}
+
+project.ext["signing.keyId"] = localProps.getProperty("signing.keyId")
+project.ext["signing.secretKeyRingFile"] = localProps.getProperty("signing.secretKeyRingFile")
+project.ext["signing.password"] = localProps.getProperty("signing.password")
+
+afterEvaluate {
+    publishing {
+        publications {
+            releaseAar(MavenPublication) {
+                from components.release
+                artifact sourceJar
+
+                groupId = project.ext.groupId
+                artifactId = project.ext.artifactId
+                version = rootProject.ext.versionName
+
+                pom {
+                    name = 'ShadowLibrary'
+                        description = 'Simply way of set shadow in your vector image in android studio project.'
+                    url = 'https://github.com/Renlov/ShadowLibrary'
+
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'Renlov'
+                            name = 'Denis Pimenov'
+                            email = 'a.pimenov95@mail.ru'
+                        }
+                        developer {
+                            id = 'res1-dent'
+                            name = 'Andrey Sazankov'
+                            email = 'res1.main@gmail.com'
+                        }
+                    }
+
+                    scm {
+                        url = 'https://github.com/Renlov/ShadowLibrary'
+                    }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                name = "sonatypeStaging"
+                url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+                credentials {
+                    username = localProps.getProperty("ossrhUsername")
+                    password = localProps.getProperty("ossrhPassword")
+                }
+            }
+
+            maven {
+                name = "sonatypeSnapshots"
+                url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+                credentials {
+                    username = localProps.getProperty("ossrhUsername")
+                    password = localProps.getProperty("ossrhPassword")
+                }
+            }
+
+        }
+    }
+
+    signing {
+        sign(publishing.publications)
+    }
+}
